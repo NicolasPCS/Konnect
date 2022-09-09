@@ -2,12 +2,20 @@
     <string name="app_name">Konnect</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Universidad Católica de Santa María</string>
+    <string name="nav_header_subtitle">Konnect</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
 
     <string name="menu_home">Mis conexiones</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="info">Información</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <!-- Landing strings. -->
+    <string name="WelcomeContent">Bienvenido a ASYS, APP de ayuda para el marcado de asistencias estudiantil. </string>
+    <string name="RecommenderContent">Marca tu asistencia en dos simples pasos. Ingresa con tu código de estudiante y contraseña. </string>
+    <string name="welcome_2">APP asistencias UCSM</string>
+    <string name="welcome_1">Bienvenido a ASYS</string>
+    <string name="iniciar_sesion">INICIAR SESIÓN</string>
+    <string name="ir_a_mis_asistencias">IR A MIS ASISTENCIAS</string>
 </resources>
