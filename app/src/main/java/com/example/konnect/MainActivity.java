@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.konnect.login.LoginActivity;
+import com.example.konnect.ui.qr.QRScanner;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -61,13 +62,26 @@ public class MainActivity extends AppCompatActivity {
         // Set user
         tvCurrentUser.setText(mAuth.getCurrentUser().getEmail());
 
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarMain.fabEscanearQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, QRScanner.class);
+                startActivity(intent);
+                /*Snackbar.make(view, "Escaneando QR", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
+
+        binding.appBarMain.fabMostrarQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, QRScanner.class);
+                startActivity(intent);
+                /*Snackbar.make(view, "Mostrando QR", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+            }
+        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

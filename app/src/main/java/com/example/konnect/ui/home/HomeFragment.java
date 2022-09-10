@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -21,6 +22,7 @@ import com.example.konnect.Entities.Contact;
 import com.example.konnect.R;
 import com.example.konnect.databinding.FragmentHomeBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -40,6 +42,7 @@ public class HomeFragment extends Fragment {
 
     // Firebase
     private FirebaseAuth mAuth;
+
 
     // Adapter para inflar el CardView
     private AdapterContact adapterContact;
@@ -63,7 +66,7 @@ public class HomeFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         // Cargar y mostrar lista
-        cargarLista(new myCallBack() {
+        cargarListaFromFirebase(new myCallBack() {
             @Override
             public void onCallback(ArrayList<Contact> contactList) {
                 mostrarData();
@@ -77,6 +80,10 @@ public class HomeFragment extends Fragment {
         });*/
 
         return root;
+    }
+
+    private void inicializarFirebase() {
+
     }
 
     private void mostrarData() {
@@ -95,24 +102,39 @@ public class HomeFragment extends Fragment {
         }*/
     }
 
-    private void cargarLista(myCallBack mCallBack) {
-
+    /*private void cargarLista(myCallBack mCallBack) {
         contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
         contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
         contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
         contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
         contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
         mCallBack.onCallback(contactArrayList);
-    }
+    }*/
 
     private void cargarListaFromFirebase(myCallBack mCallBack) {
-
-        contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
-        contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
-        contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
-        contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
-        contactArrayList.add(new Contact("Nicolás Caytuiro Silva", "Ingeniería de Sistemas", "Octavo semestre", "Hola como estás, mi nombre es Nicolás y me gustaría unirme a tu red", "+51 918389387", "https://www.linkedin.com/feed/", "https://www.instagram.com/", "https://www.facebook.com/"));
-
+        FirebaseFirestore.getInstance().collection("connections").document(mAuth.getCurrentUser().getEmail()).collection("child_connections")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for(QueryDocumentSnapshot document : task.getResult()) {
+                                Contact aux = new Contact();
+                                aux.setNombre(document.getString("nombre"));
+                                aux.setCarrera(document.getString("carrera"));
+                                aux.setSemestre(document.getString("semestre"));
+                                aux.setDescripcion(document.getString("descripcion"));
+                                aux.setWhatsapp(document.getString("whatsapp"));
+                                aux.setLinkedIn(document.getString("linkedin"));
+                                aux.setInstagram(document.getString("instagram"));
+                                aux.setFacebook(document.getString("facebook"));
+                                contactArrayList.add(aux);
+                            }
+                            mCallBack.onCallback(contactArrayList);
+                        } else {
+                            Toast.makeText(getContext(), "Lo sentimos, no pudimos encontrar conexiones. Estamos trabajando en ello.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     public interface myCallBack {
