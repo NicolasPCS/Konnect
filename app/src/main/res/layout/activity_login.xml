@@ -88,6 +88,10 @@
                     android:layout_marginRight="19dp"
                     android:orientation="vertical">
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -125,6 +129,10 @@
                             android:singleLine="true"
                             android:textColor="#333232" />
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp" />
 
                     <Button
                         android:id="@+id/btnLogin"
@@ -241,7 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="ASYS"
+                android:text="KONNECT"
                 android:textColor="#333232"
                 android:textSize="13.3sp" />
 

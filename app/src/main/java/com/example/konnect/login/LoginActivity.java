@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
                     contrasenia.setError("Ingrese una contraseña");
                     contrasenia.requestFocus();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Enviando a otra ventana", Toast.LENGTH_SHORT).show();
                     loginUser(emailUser, passUser);
                 }
             }

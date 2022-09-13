@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import com.example.konnect.login.LoginActivity;
+import com.example.konnect.ui.qr.QRGenerator;
 import com.example.konnect.ui.qr.QRScanner;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fabMostrarQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, QRScanner.class);
+                Intent intent = new Intent(MainActivity.this, QRGenerator.class);
                 startActivity(intent);
                 /*Snackbar.make(view, "Mostrando QR", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
