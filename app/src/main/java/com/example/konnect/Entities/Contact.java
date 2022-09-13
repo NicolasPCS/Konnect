@@ -11,6 +11,16 @@ public class Contact {
     private String instagram;
     private String facebook;
 
+    private String fotoPerfil;
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -77,7 +87,7 @@ public class Contact {
 
     public Contact() {}
 
-    public Contact(String nombre, String carrera, String semestre, String descripcion, String whatsapp, String linkedIn, String instagram, String facebook) {
+    public Contact(String nombre, String carrera, String semestre, String descripcion, String whatsapp, String linkedIn, String instagram, String facebook, String fotoPerfil) {
         this.nombre = nombre;
         this.carrera = carrera;
         this.semestre = semestre;
@@ -86,5 +96,6 @@ public class Contact {
         this.linkedIn = linkedIn;
         this.instagram = instagram;
         this.facebook = facebook;
+        this.fotoPerfil = fotoPerfil;
     }
 }

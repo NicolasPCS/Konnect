@@ -83,13 +83,13 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     builder = new AlertDialog.Builder(LoginActivity.this);
                     builder.setTitle("Se ha producido un error");
-                    builder.setMessage("Intentalo más tarde");
+                    builder.setMessage("Usuario o contraseña incorrectos");
                     builder.setCancelable(false);
                     builder.setPositiveButton("Aceptar", null);
                     builder.show();
                 }
             }
-        }).addOnFailureListener(new OnFailureListener() {
+        })/*.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 builder = new AlertDialog.Builder(LoginActivity.this);
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                 builder.setPositiveButton("Aceptar", null);
                 builder.show();
             }
-        });
+        })*/;
     }
 
     private void changeStatusBarColor() {
@@ -118,7 +118,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            Toast.makeText(this, user.getDisplayName(), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
         }
     }

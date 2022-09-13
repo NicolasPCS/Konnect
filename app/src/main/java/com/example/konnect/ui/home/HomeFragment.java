@@ -127,6 +127,7 @@ public class HomeFragment extends Fragment {
                                 aux.setLinkedIn(document.getString("linkedin"));
                                 aux.setInstagram(document.getString("instagram"));
                                 aux.setFacebook(document.getString("facebook"));
+                                aux.setFotoPerfil(document.getString("foto_perfil"));
                                 contactArrayList.add(aux);
                             }
                             mCallBack.onCallback(contactArrayList);

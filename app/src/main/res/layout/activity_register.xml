@@ -32,7 +32,7 @@ android:layout_gravity="center">
                 style="@style/viewParent.headerText.NoMode"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="Aquí \n!Comienza \nel cambio!"
+                android:text="!Aquí \nComienza \nel cambio¡"
                 android:textColor="@color/whiteTextColor" />
 
             <ImageView
@@ -116,150 +116,17 @@ android:layout_gravity="center">
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="Pepito Peréz">
+                            app:endIconMode="password_toggle"
+                            app:helperText="8 digitos">
 
                             <EditText
-                                android:id="@+id/registerNombre"
+                                android:id="@+id/registerValidateContrasena"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="8"
-                                android:hint="Nombre"
+                                android:hint="Repite tu contraseña"
                                 android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="Administración de empresas">
-
-                            <EditText
-                                android:id="@+id/registerCarrera"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="Carrera profesional"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="Semestre de estudios">
-
-                            <EditText
-                                android:id="@+id/registerSemestre"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="Octavo semestre"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="Cuentános más sobre ti">
-
-                            <EditText
-                                android:id="@+id/registerDescripcion"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="Sobre mi"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="918389387">
-
-                            <EditText
-                                android:id="@+id/registerWhatsapp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="Whatsapp"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="https://www.linkedin.com/in/inniciaucsm/">
-
-                            <EditText
-                                android:id="@+id/registerLinkedin"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="LinkedIn"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="https://www.facebook.com/inniciaucsm">
-
-                            <EditText
-                                android:id="@+id/registerFacebook"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="Facebook"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
-                                android:singleLine="true"
-                                android:textColor="#333232" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            app:endIconMode="clear_text"
-                            app:helperText="https://www.instagram.com/inniciaucsm/">
-
-                            <EditText
-                                android:id="@+id/registerInstagram"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ems="8"
-                                android:hint="Instagram"
-                                android:textColorHint="@color/black"
-                                android:inputType="text"
+                                android:inputType="textPassword"
                                 android:singleLine="true"
                                 android:textColor="#333232" />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -276,7 +143,7 @@ android:layout_gravity="center">
                             android:layout_marginBottom="10dp"
                             android:layout_weight="1"
                             android:background="@drawable/login_button"
-                            android:text="INGRESAR"
+                            android:text="CREAR USUARIO"
                             android:textColor="@color/white" />
 
                         <TextView
