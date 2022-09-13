@@ -8,7 +8,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -16,9 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.konnect.MainActivity;
 import com.example.konnect.R;
-import com.example.konnect.landing.PrefManager;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,8 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     // Firebase
     private FirebaseAuth mAuth;
 
-    private PrefManager prefManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         changeStatusBarColor();
-
-        // PrefManager
-        prefManager = new PrefManager(this);
 
         // Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -89,17 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                     builder.show();
                 }
             }
-        })/*.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                builder = new AlertDialog.Builder(LoginActivity.this);
-                builder.setTitle("Error de autenticación");
-                builder.setMessage("Usuario o contraseña incorrectos");
-                builder.setCancelable(false);
-                builder.setPositiveButton("Aceptar", null);
-                builder.show();
-            }
-        })*/;
+        });
     }
 
     private void changeStatusBarColor() {

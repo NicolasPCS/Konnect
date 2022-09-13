@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 
-import com.example.konnect.landing.PrefManager;
 import com.example.konnect.landing.Start_Activity;
 import com.example.konnect.login_signup.LoginActivity;
 import com.example.konnect.ui.qr.QRGenerator;
@@ -39,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvCurrentUser;
 
-    private PrefManager prefManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
 
         mAuth = FirebaseAuth.getInstance();
-
-        // PrefManager
-        prefManager = new PrefManager(this);
 
         // Navigation view
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -108,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
     private void logOut() {
         mAuth.signOut();
         this.finish();
-        prefManager.setIsFirstTimeLaunch(true);
         startActivity(new Intent(getApplicationContext(), Start_Activity.class));
     }
 

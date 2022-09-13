@@ -93,13 +93,7 @@ public class RegisterSecondActivity extends AppCompatActivity {
         } else if (whatsapp.length() != 9) {
             etWhatsapp.setError("Número de Whatsapp incorrecto");
             etWhatsapp.requestFocus();
-        } else if (linkedin.isEmpty()) {
-            linkedin = "https://www.linkedin.com/feed/";
-        } else if (facebook.isEmpty()) {
-            facebook = "https://www.facebook.com/";
-        } else if (instagram.isEmpty()) {
-            instagram = "https://www.instagram.com/";
-        }else {
+        } else {
             firebaseCreateAccount(nombre, carrera, semestre, descripcion, whatsapp, linkedin, facebook, instagram);
         }
     }
@@ -120,11 +114,13 @@ public class RegisterSecondActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        builder = new AlertDialog.Builder(RegisterSecondActivity.this);
+                        /*builder = new AlertDialog.Builder(RegisterSecondActivity.this);
                         builder.setTitle("Cuenta creada exitosamente");
                         builder.setCancelable(false);
                         builder.setPositiveButton("Aceptar", null);
-                        builder.show();
+                        builder.show();*/
+
+                        Toast.makeText(RegisterSecondActivity.this, "Cuenta creada correctamente", Toast.LENGTH_SHORT).show();
 
                         startActivity(new Intent(RegisterSecondActivity.this, MainActivity.class));
                         finish();

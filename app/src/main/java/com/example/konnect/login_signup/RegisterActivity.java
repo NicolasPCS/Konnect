@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.konnect.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -91,11 +92,14 @@ public class RegisterActivity extends AppCompatActivity {
                         // Get user info
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         String email = firebaseUser.getEmail();
-                        builder = new AlertDialog.Builder(RegisterActivity.this);
+
+                        Toast.makeText(RegisterActivity.this, "Usuario " + email + " creado correctamente", Toast.LENGTH_SHORT).show();
+
+                        /*builder = new AlertDialog.Builder(RegisterActivity.this);
                         builder.setTitle("Usuario " + email + " creado correctamente");
                         builder.setCancelable(false);
                         builder.setPositiveButton("Aceptar", null);
-                        builder.show();
+                        builder.show();*/
 
                         startActivity(new Intent(RegisterActivity.this, RegisterSecondActivity.class));
                         finish();
@@ -103,12 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        builder = new AlertDialog.Builder(RegisterActivity.this);
-                        builder.setTitle("No pudimos crear este usuario");
-                        builder.setMessage(e.getMessage());
-                        builder.setCancelable(false);
-                        builder.setPositiveButton("Aceptar", null);
-                        builder.show();
+                        Toast.makeText(RegisterActivity.this, "No pudimos crear este usuario.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
