@@ -21,7 +21,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.konnect.MainActivity;
 import com.example.konnect.R;
-import com.example.konnect.login.LoginActivity;
+import com.example.konnect.login_signup.LoginActivity;
+import com.example.konnect.login_signup.RegisterActivity;
 
 public class Start_Activity extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class Start_Activity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private TextView btnSkip;
+    private Button btnRegister;
     private Button loginBtn;
     private PrefManager prefManager;
 
@@ -52,7 +53,7 @@ public class Start_Activity extends AppCompatActivity {
 
         viewPager =  findViewById(R.id.view_pager);
         dotsLayout =  findViewById(R.id.layoutDots);
-        btnSkip =  findViewById(R.id.btn_skip);
+        btnRegister =  findViewById(R.id.btn_register);
         loginBtn = findViewById(R.id.loginBtn);
 
         // layouts of all welcome sliders
@@ -85,6 +86,31 @@ public class Start_Activity extends AppCompatActivity {
                 startLoginActivity();
             }
         });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startRegisterActivity();
+            }
+        });
+    }
+
+    private void startLoginActivity() {
+        prefManager.setIsFirstTimeLaunch(false);
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
+
+    private void startRegisterActivity() {
+        prefManager.setIsFirstTimeLaunch(false);
+        startActivity(new Intent(this, RegisterActivity.class));
+        finish();
+    }
+
+    private void launchHomeScreen() {
+        prefManager.setIsFirstTimeLaunch(false);
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -115,18 +141,6 @@ public class Start_Activity extends AppCompatActivity {
     }
 
     private int getItem(int i) { return viewPager.getCurrentItem() + 1; }
-
-    private void startLoginActivity() {
-        prefManager.setIsFirstTimeLaunch(false);
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
-    }
-
-    private void launchHomeScreen() {
-        prefManager.setIsFirstTimeLaunch(false);
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-    }
 
     /*//  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {

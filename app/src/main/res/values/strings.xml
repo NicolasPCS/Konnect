@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Konnect</string>
+    <string name="app_name">KONNECT</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Universidad Católica de Santa María</string>
@@ -18,4 +18,7 @@
     <string name="welcome_1">Bienvenido a CONNECT</string>
     <string name="iniciar_sesion">INICIAR SESIÓN</string>
     <string name="ir_a_mis_asistencias">VER MIS CONTACTOS</string>
+    <string name="tienes_cuenta">¿Tienes una \ncuenta?</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
 </resources>

@@ -10,4 +10,9 @@
     <dimen name="dots_height">30dp</dimen>
     <dimen name="headerSize">30dp</dimen>
     <dimen name="contentSize">14dp</dimen>
+
+    <!-- Login Register dimens -->
+    <dimen name="headerTextSize">25sp</dimen>
+    <dimen name="newsMoreTextSize">12sp</dimen>
+    <dimen name="loginViewsMargin">20dp</dimen>
 </resources>

@@ -2,18 +2,17 @@ package com.example.konnect;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 
-import com.example.konnect.login.LoginActivity;
+import com.example.konnect.landing.PrefManager;
+import com.example.konnect.landing.Start_Activity;
+import com.example.konnect.login_signup.LoginActivity;
 import com.example.konnect.ui.qr.QRGenerator;
 import com.example.konnect.ui.qr.QRScanner;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -40,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvCurrentUser;
 
+    private PrefManager prefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
 
         mAuth = FirebaseAuth.getInstance();
+
+        // PrefManager
+        prefManager = new PrefManager(this);
 
         // Navigation view
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -104,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
     private void logOut() {
         mAuth.signOut();
         this.finish();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        prefManager.setIsFirstTimeLaunch(true);
+        startActivity(new Intent(getApplicationContext(), Start_Activity.class));
     }
 
     @Override

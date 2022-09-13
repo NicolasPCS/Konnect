@@ -1,4 +1,4 @@
-package com.example.konnect.login;
+package com.example.konnect.login_signup;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,15 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.konnect.MainActivity;
 import com.example.konnect.R;
+import com.example.konnect.landing.PrefManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     // Firebase
     private FirebaseAuth mAuth;
 
+    private PrefManager prefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         changeStatusBarColor();
+
+        // PrefManager
+        prefManager = new PrefManager(this);
 
         // Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -79,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     finish();
-                    Toast.makeText(LoginActivity.this, "correcto", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
                     builder = new AlertDialog.Builder(LoginActivity.this);
@@ -107,6 +106,11 @@ public class LoginActivity extends AppCompatActivity {
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(Color.TRANSPARENT);
+    }
+
+    public void onLoginClick(View View){
+        startActivity(new Intent(this, RegisterActivity.class));
+        overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
     }
 
     @Override

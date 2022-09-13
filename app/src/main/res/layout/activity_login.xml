@@ -1,260 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f2f2"
-    tools:context=".login.LoginActivity">
+    android:background="#FFF"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:layout_gravity="center"
+    tools:context=".login_signup.LoginActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="10dp"
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="38.3dp"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="32dp"
-                android:gravity="center_horizontal"
-                android:text="Inicia Sesión"
-                android:textColor="#333232"
-                android:textSize="30sp" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="right|bottom"
-                android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="7.3dp"
-                    android:background="@drawable/small_cicle" />
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    style="@style/viewParent.headerText.NoMode"
+                    android:text="@string/tienes_cuenta"/>
 
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_register_hero"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            </RelativeLayout>
 
-                <FrameLayout
-                    android:id="@+id/half_circle"
-                    android:layout_width="50dp"
-                    android:layout_height="100dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/half_circle" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:orientation="horizontal"
-            android:paddingLeft="14.5dp">
-
-            <View
-                android:layout_width="5.6dp"
-                android:layout_height="275dp"
-                android:background="#1da9bb" />
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="13dp"
-                android:layout_marginRight="35.6dp"
-                android:background="@drawable/rectangle">
+                android:layout_marginTop="28dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                android:paddingTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="275dp"
-                    android:layout_marginLeft="13dp"
-                    android:layout_marginRight="19dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                        android:layout_width="5.6dp"
+                        android:layout_height="275dp"
+                        android:background="@color/blue_200" />
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        app:endIconMode="clear_text"
-                        app:helperText="Correo institucional">
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp">
 
-                        <EditText
-                            android:id="@+id/loginUsuario"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="8"
-                            android:hint="Usuario"
-                            android:textColorHint="@color/black"
-                            android:inputType="text"
-                            android:singleLine="true"
-                            android:textColor="#333232" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_height="275dp"
+                            android:layout_marginLeft="13dp"
+                            android:layout_marginRight="19dp"
+                            android:orientation="vertical">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        app:endIconMode="password_toggle"
-                        app:helperText="8 digitos">
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp" />
 
-                        <EditText
-                            android:id="@+id/loginContrasena"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="8"
-                            android:hint="Contraseña"
-                            android:textColorHint="@color/black"
-                            android:inputType="text"
-                            android:singleLine="true"
-                            android:textColor="#333232" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                app:endIconMode="clear_text"
+                                app:helperText="Correo institucional">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp" />
+                                <EditText
+                                    android:id="@+id/loginUsuario"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="8"
+                                    android:hint="@string/usuario"
+                                    android:textColorHint="@color/black"
+                                    android:inputType="text"
+                                    android:singleLine="true"
+                                    android:textColor="#333232" />
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                    <Button
-                        android:id="@+id/btnLogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/login_button"
-                        android:text="INGRESAR"
-                        android:textColor="@color/white" />
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                app:endIconMode="password_toggle"
+                                app:helperText="8 digitos">
+
+                                <EditText
+                                    android:id="@+id/loginContrasena"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ems="8"
+                                    android:hint="@string/contrasena"
+                                    android:textColorHint="@color/black"
+                                    android:inputType="textPassword"
+                                    android:singleLine="true"
+                                    android:textColor="#333232" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp" />
+
+                            <Button
+                                android:id="@+id/btnLogin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/login_button"
+                                android:text="INGRESAR"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                style="@style/parent"
+                                android:textAlignment="center"
+                                android:textStyle="bold"
+                                android:textColor="@color/blue_200"
+                                android:textSize="14sp"
+                                android:text="Registrate"
+                                android:onClick="onLoginClick"
+                                android:layout_marginBottom="5dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="12"
+                android:gravity="center"
+                android:layout_marginTop="30dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_color"
+                    android:layout_weight="3"/>
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INNICIA"
+                    android:layout_weight="6"
+                    android:textSize="12sp"
+                    android:textAlignment="center"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_color"
+                    android:layout_weight="3"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/app_name"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linear"
-            android:layout_width="90dp"
-            android:layout_height="41dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="right"
-            android:layout_marginTop="40.3dp"
-            android:layout_marginBottom="16.7dp"
-            android:background="@drawable/half_blue_roundshape"
-            android:gravity="center"
-            android:orientation="vertical">
+    </ScrollView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Login"
-                android:textColor="#ffffff"
-                android:textSize="15sp" />
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_side_bg" />
 
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="21.6dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="85.6dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center"
-                android:background="#d2d2d2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text=" También puedes acceder a "
-                android:textColor="#aeaeae"
-                android:textSize="13.3sp" />
-
-            <View
-                android:layout_width="85.6dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center"
-                android:background="#d2d2d2" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="26.6dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="26.7dp"
-                android:layout_height="26.7dp"
-                android:layout_marginStart="75dp"
-                android:src="@drawable/ic_baseline_insert_link_24" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_weight="1"
-                android:text=" Universidad Católica de Santa María" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="KONNECT"
-                android:textColor="#333232"
-                android:textSize="13.3sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="30dp"
+        android:adjustViewBounds="false"
+        android:onClick="onLoginClick"
+        android:src="@drawable/ic_add_img" />
 
 </RelativeLayout>

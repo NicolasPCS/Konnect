@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -134,18 +135,39 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
         @Override
         public void onClick(View view) {
+
             switch (view.getId()) {
                 case R.id.btnWhatsapp:
-                    Toast.makeText(context, "Hizo click en whatsapp " + whatsapp, Toast.LENGTH_SHORT).show();
+                    Uri uriWhatsapp;
+                    Intent intentWhatsapp;
+                    String url = "https://api.whatsapp.com/send/?phone=";
+                    String message = "&text=%22Hola%2C+me+gustaría+que+me+añadas+a+tu+red+\uD83D\uDE42%21%22&type=phone_number";
+                    uriWhatsapp = Uri.parse(url + whatsapp + "");
+                    intentWhatsapp = new Intent(Intent.ACTION_VIEW, uriWhatsapp);
+                    context.startActivity(intentWhatsapp);
                     break;
                 case R.id.btnLinkedin:
-                    Toast.makeText(context, "Hizo click en linkedin " + linkedin, Toast.LENGTH_SHORT).show();
+                    Log.i("asd", "https://github.com/leandroBorgesFerreira/LoadingButtonAndroid/issues/59");
+                    Uri uriLinkedin;
+                    Intent intentLinkedin;
+
+                    uriLinkedin = Uri.parse("https://github.com/leandroBorgesFerreira/LoadingButtonAndroid/issues/59");
+                    intentLinkedin = new Intent(Intent.ACTION_VIEW, uriLinkedin);
+                    context.startActivity(intentLinkedin);
                     break;
                 case R.id.btnInstagram:
-                    Toast.makeText(context, "Hizo click en instagram " + instagram, Toast.LENGTH_SHORT).show();
+                    Uri uriInstagram;
+                    Intent intentInstagram;
+                    uriInstagram = Uri.parse(instagram);
+                    intentInstagram = new Intent(Intent.ACTION_VIEW, uriInstagram);
+                    context.startActivity(intentInstagram);
                     break;
                 case R.id.btnFacebook:
-                    Toast.makeText(context, "Hizo click en facebook " + facebook, Toast.LENGTH_SHORT).show();
+                    Uri uriFacebook;
+                    Intent intentFacebook;
+                    uriFacebook = Uri.parse(facebook);
+                    intentFacebook = new Intent(Intent.ACTION_VIEW, uriFacebook);
+                    context.startActivity(intentFacebook);
                     break;
                 case R.id.btnContactar:
                     Toast.makeText(context, "Hizo click en contactar", Toast.LENGTH_SHORT).show();
