@@ -111,7 +111,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
         // Botones
         Button btnWhatsapp, btnLinkedin, btnInstagram, btnFacebook;
-        Button btnContactar, btnFormarGrupo;
+        Button btnFormarGrupo;
 
         // Expandable view
         public LinearLayout expandableView;
@@ -144,7 +144,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     .into(ivFotoP);*/
 
             // Botones
-            btnContactar = itemView.findViewById(R.id.btnContactar);
+            //btnContactar = itemView.findViewById(R.id.btnContactar);
             btnFormarGrupo = itemView.findViewById(R.id.btnFormarGrupo);
 
             // Expandable CardView
@@ -161,7 +161,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             btnInstagram.setOnClickListener(this);
             btnFacebook.setOnClickListener(this);
 
-            btnContactar.setOnClickListener(this);
+            //btnContactar.setOnClickListener(this);
             btnFormarGrupo.setOnClickListener(this);
             expandBtn.setOnClickListener(this);
         }
@@ -217,9 +217,6 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                         Toast.makeText(context, "No pudimos encontrar estos datos", Toast.LENGTH_SHORT).show();
                     }
                     break;
-                case R.id.btnContactar:
-                    Toast.makeText(context, "Hizo click en contactar", Toast.LENGTH_SHORT).show();
-                    break;
                 case R.id.btnFormarGrupo:
                     Toast.makeText(context, "Hizo click en formar grupo", Toast.LENGTH_SHORT).show();
                     break;
@@ -237,7 +234,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             } else {
                 TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
                 expandableView.setVisibility(View.GONE);
-                expandBtn.setText("MARCAR ASISTENCIA");
+                expandBtn.setText("SABER MÁS");
             }
         }
     }

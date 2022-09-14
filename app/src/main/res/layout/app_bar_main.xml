@@ -14,8 +14,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryLanding"
             app:popupTheme="@style/Theme.Konnect.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -30,6 +30,7 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+        android:backgroundTint="@color/colorAccentLanding"
         app:layout_anchor="@id/view"/>
 
     <View
@@ -44,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-
+        android:backgroundTint="@color/colorAccentLanding"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:srcCompat="@drawable/ic_baseline_qr_code_24" />
