@@ -34,6 +34,7 @@
                     android:textColor="@color/whiteTextColor" />
 
                 <ImageView
+                    android:id="@+id/profileProfilePic"
                     android:layout_marginTop="10dp"
                     android:src="@drawable/user2"
                     app:shapeAppearanceOverlay="@style/Circular"

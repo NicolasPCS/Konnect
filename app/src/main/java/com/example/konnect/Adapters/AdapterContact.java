@@ -135,11 +135,11 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             btnInstagram = itemView.findViewById(R.id.btnInstagram);
             btnFacebook = itemView.findViewById(R.id.btnFacebook);
             // Foto
-            //ivFotoP = itemView.findViewById(R.id.fotoPerfilUser);
-            //sNuevaStringFotoPerfil = fotoPerfil.getText().toString();
-            //Log.i("Descripcion", descripcion.getText().toString() + "           d");
-            /*Glide.with(context)
-                    .load(sNuevaStringFotoPerfil)
+            /*ivFotoP = itemView.findViewById(R.id.fotoPerfilUser);
+            sNuevaStringFotoPerfil = fotoPerfil.getText().toString();
+            Log.i("Descripcion", descripcion.getText().toString() + "           d");
+            Glide.with(context)
+                    .load(Uri.parse("sNuevaStringFotoPerfil"))
                     .override(110, 110)
                     .into(ivFotoP);*/
 
