@@ -117,4 +117,8 @@
         <item name="android:paddingLeft">5dp</item>
     </style>
 
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

@@ -44,7 +44,7 @@ public class QRGenerator extends AppCompatActivity {
             Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
             ivQRGenerator.setImageBitmap(bitmap);
 
-            Toast.makeText(QRGenerator.this, ivQRGenerator.getMaxHeight() + " " + ivQRGenerator.getMaxWidth() + " " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+            // Toast.makeText(QRGenerator.this, ivQRGenerator.getMaxHeight() + " " + ivQRGenerator.getMaxWidth() + " " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,6 +53,7 @@ public class QRGenerator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(QRGenerator.this, MainActivity.class));
+                finish();
             }
         });
     }

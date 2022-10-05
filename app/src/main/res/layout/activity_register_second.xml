@@ -135,7 +135,7 @@ android:layout_gravity="center">
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 app:endIconMode="clear_text"
-                                app:helperText="Cuentános más sobre ti">
+                                app:helperText="Cuentános más sobre ti (200 palabras)">
 
                                 <EditText
                                     android:id="@+id/registerDescripcion"
@@ -143,8 +143,9 @@ android:layout_gravity="center">
                                     android:layout_height="wrap_content"
                                     android:ems="8"
                                     android:hint="Sobre mi"
+                                    android:maxLength="200"
                                     android:textColorHint="@color/black"
-                                    android:inputType="text"
+                                    android:inputType="textMultiLine"
                                     android:singleLine="true"
                                     android:textColor="#333232" />
                             </com.google.android.material.textfield.TextInputLayout>

@@ -197,7 +197,7 @@
                     android:gravity="center">
 
                     <Button
-                        android:id="@+id/btnContactar"
+                        android:id="@+id/btnContactarDesarrollador"
                         android:layout_width="150dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="12dp"

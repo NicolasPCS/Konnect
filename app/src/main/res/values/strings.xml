@@ -9,6 +9,7 @@
 
     <string name="menu_home">Mis conexiones</string>
     <string name="info">Información</string>
+    <string name="profile">Perfil</string>
     <string name="logout">Cerrar sesión</string>
 
     <!-- Landing strings. -->

@@ -171,6 +171,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         public void onClick(View view) {
 
             switch (view.getId()) {
+                case R.id.btnFormarGrupo:
                 case R.id.btnWhatsapp:
                     if (whatsapp != null) {
                         Uri uriWhatsapp;
@@ -217,9 +218,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                         Toast.makeText(context, "No pudimos encontrar estos datos", Toast.LENGTH_SHORT).show();
                     }
                     break;
-                case R.id.btnFormarGrupo:
-                    Toast.makeText(context, "Hizo click en formar grupo", Toast.LENGTH_SHORT).show();
-                    break;
+                //case R.id.btnFormarGrupo:
+                //    Toast.makeText(context, "Hizo click en formar grupo", Toast.LENGTH_SHORT).show();
+                //    break;
                 case R.id.expandBtn:
                     expandLayout();
                     break;

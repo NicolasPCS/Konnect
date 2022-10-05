@@ -58,12 +58,13 @@ public class QRScanner extends AppCompatActivity {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Lectora cancelada", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(QRScanner.this, MainActivity.class);
-
                 startActivity(intent);
+                this.finish();
             } else {
                 Intent intent = new Intent(QRScanner.this, MainActivity.class);
 
                 // Enviar la data a Firebase desde aqui
+                //result.getContents();
                 // Incoming data of user from firebase
                 FirebaseFirestore.getInstance().collection("connections").document(result.getContents().toString())
                         .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -83,17 +84,20 @@ public class QRScanner extends AppCompatActivity {
                                     instagram = document.getString("instagram");
                                     facebook = document.getString("facebook");
 
-                                    sendDataToFirebase(nombre, carrera, semestre, descripcion, whatsapp, linkedin, instagram, facebook);
+                                    String correoContacto = result.getContents().toString();
+
+                                    sendDataToFirebase(nombre, carrera, semestre, descripcion, whatsapp, linkedin, instagram, facebook, correoContacto);
                                 } else {
-                                    Toast.makeText(QRScanner.this, "No pudemos conectarnos con nuestros servidores. Intentalo más tarde.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(QRScanner.this, "No podemos conectarnos con nuestros servidores. Intentalo más tarde.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
 
                 // Send data of user to firebase
-                Toast.makeText(QRScanner.this, result.getContents(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(QRScanner.this, result.getContents(), Toast.LENGTH_SHORT).show();
 
                 startActivity(intent);
+                this.finish();
                 //tctResult.setText(result.getContents());
             }
         } else {
@@ -101,7 +105,7 @@ public class QRScanner extends AppCompatActivity {
         }
     }
 
-    private void sendDataToFirebase(String nombre, String carrera, String semestre, String descripcion, String whatsapp, String linkedin, String instagram, String facebook) {
+    private void sendDataToFirebase(String nombre, String carrera, String semestre, String descripcion, String whatsapp, String linkedin, String instagram, String facebook, String correoContacto) {
         // Add a new document with a generated id.
         Map<String, Object> data = new HashMap<>();
         data.put("nombre", nombre);
@@ -113,11 +117,11 @@ public class QRScanner extends AppCompatActivity {
         data.put("instagram", instagram);
         data.put("facebook", facebook);
 
-        FirebaseFirestore.getInstance().collection("connections").document(mAuth.getCurrentUser().getEmail()).collection("child_connections")
-                .add(data)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        FirebaseFirestore.getInstance().collection("connections").document(mAuth.getCurrentUser().getEmail()).collection("child_connections").document(correoContacto)
+                .set(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void aVoid) {
                         Toast.makeText(QRScanner.this, "Agregado a tu lista de contactos", Toast.LENGTH_SHORT).show();
                     }
                 })
